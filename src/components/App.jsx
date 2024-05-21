@@ -1,12 +1,9 @@
-import { useState } from "react"
-
+import { HeadDiv } from "./head/HeadDiv.jsx";
 export function App(){
-
-    const [task,setTask] = useState({});
 
     return(
         <>
-            <Head setTask={setTask}/>
+            <HeadDiv/> 
         </>
     )
 }
