@@ -13,5 +13,5 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const db = getDatabase(app);
 export const todoRef = ref(db,"todo");
-export const inprogressRef = ref(deb,"inprogress");
+export const inprogressRef = ref(db,"inprogress");
 export const doneRef = ref(db,"done");
