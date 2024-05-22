@@ -1,2 +1,14 @@
 1: Att fixa logiken när man skriver ett namn och clickar på assign.
-Componenten ska då tas bort från nu varande table och läggas till i Inprogress med namnet på personen som 
+Componenten ska då tas bort från nu varande table och läggas till i Inprogress med namnet på personen som tog sig an upg.
+
+2: Bygg inprogress diven, bör vara samma som todo möjligt vis lättare.
+
+3: Fixa Done diven bör vara lättast av alla men får se.
+
+4: Förbättra css eventuellt byta färgkodningen på dom olika divarna.
+4.1: Coola fonts ????
+
+5: VG ideer 
+
+*Urgent bar? 
+*Login med react routing?
