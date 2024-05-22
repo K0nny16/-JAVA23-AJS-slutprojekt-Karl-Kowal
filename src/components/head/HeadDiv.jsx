@@ -12,7 +12,6 @@ export function HeadDiv(){
         const newID = push(todoRef).key;
         const newTask = {};
         newTask[newID] = {task,workArea};
-        console.log(newTask);
         update(todoRef,newTask);
     }
 

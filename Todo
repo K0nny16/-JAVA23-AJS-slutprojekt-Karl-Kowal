@@ -1,0 +1,2 @@
+1: Att fixa logiken när man skriver ett namn och clickar på assign.
+Componenten ska då tas bort från nu varande table och läggas till i Inprogress med namnet på personen som 
