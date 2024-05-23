@@ -13,9 +13,9 @@ export function Todo(){
         })
     },[])
 
-    console.log(todoList);
     return(
         <div className="column">
+            <h2>Todo</h2>
             <TodoPane todoList={todoList}/>
         </div>
     )

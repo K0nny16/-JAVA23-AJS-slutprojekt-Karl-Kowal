@@ -1,16 +1,22 @@
+/* pane.css */
+
+/* Styles for individual panes */
 .pane {
     border-radius: 10px;
     margin-bottom: 10px;
     padding: 10px;
     background-color: #f4f4f4;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    width: 80%;
 }
+
 .pane p {
     margin: 5px 0;
     font-size: 16px;
     font-weight: bold;
     color: #333;
 }
+
 .pane input[type="text"] {
     width: calc(100% - 20px);
     padding: 8px;
@@ -19,6 +25,7 @@
     box-sizing: border-box;
     margin-bottom: 10px;
 }
+
 .pane button {
     padding: 8px 16px;
     background-color: #ddd;
@@ -28,19 +35,26 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-bottom: 10px;
+    transform: translateY(30%);
 }
+
 .pane button:hover {
     background-color: #f5f5f5;
 }
+
 .pane button span {
     filter: blur(0.5px);
 }
+
+/* Styles for different work areas */
 .pane.frontend {
     background-color: lightblue;
 }
+
 .pane.backend {
     background-color: lightgreen;
 }
+
 .pane.ux {
     background-color: lightpink;
 }
