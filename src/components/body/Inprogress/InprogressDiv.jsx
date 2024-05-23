@@ -6,6 +6,7 @@ import { InprogressPane } from "./InprogressPane.jsx";
 export function Inprogress(){
     const [inprogressList,setInprogressList] = useState({})
 
+    //När datan på firebase ändras så updateras statet och anpassar renderingen.
     useEffect(() => {
         onValue(inprogressRef, (snapshot) => {
             const data = snapshot.val();

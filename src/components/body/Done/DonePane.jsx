@@ -3,6 +3,7 @@ import { capitalizeFirstLetter } from "../../../Utils/Utils.ts";
 
 export function DonePane({doneList}){
 
+    //Tarbort tasket från databasen.
     function deleteTask(event){
         const key = event.target.getAttribute("data-key");
         removeTask(key,"done/")
@@ -10,6 +11,7 @@ export function DonePane({doneList}){
 
     return(
         <>
+            {/*Loopar över dom olika keysen och bygger divar med attributerna som finns i objekten.*/}
             {Object.keys(doneList).map(key => {
                 const done = doneList[key];
                 const style = done.workArea.toLowerCase();

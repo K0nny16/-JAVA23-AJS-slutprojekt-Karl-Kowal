@@ -6,6 +6,7 @@ import { DonePane } from "./DonePane.jsx";
 export function Done(){
     const [doneList,setDoneList] = useState({});
 
+    //Updaterar statet när ändringar i databasen sker.
     useEffect(() =>{
         onValue(doneRef, (snapshot) => {
             const data = snapshot.val();

@@ -6,6 +6,7 @@ import { TodoPane } from "./TodoPane.jsx";
 export function Todo(){
     const [todoList,setTodoList] = useState({});
     
+    //Hämtar datan från den valda tabellen och updaterar statet när databasen updateras.
     useEffect(() => {
         onValue(todoRef, (snapshot) => {
             const data = snapshot.val();

@@ -5,6 +5,7 @@ import { capitalizeFirstLetter, extractText } from "../../../Utils/Utils.ts";
 
 export function InprogressPane({inprogressList}){
 
+    //Skickar datan från diven till nästa tabell i firebase (done) och tar bort den från den nuvarnade.
     function toDone(event){
         const key = event.target.getAttribute("data-key");
         const partentDiv = event.target.closest(".pane");
@@ -21,6 +22,7 @@ export function InprogressPane({inprogressList}){
 
     return(
         <>
+            {/*Itererar över dom olika keysen och displayar attributerna i en div med p taggar*/}
             {Object.keys(inprogressList).map(key => {
                 const inprogress = inprogressList[key];
                 const style = inprogress.workArea.toLowerCase();

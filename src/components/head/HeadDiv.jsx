@@ -3,6 +3,7 @@ import { todoRef } from "../../firebase/firebaseConfig";
 
 export function HeadDiv(){
 
+    //Skickar objectet med det nya tasket till firebase och sparar det i todo tabellen.
     function postNewTask(event){
         event.preventDefault();
         const task = document.querySelector("#input").value;

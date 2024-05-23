@@ -11,6 +11,7 @@ const firebaseConfig = {
   appId: "1:476196483267:web:b87763c49315d074a03276"
 };
 
+//Exporterar referencerna till dom olika tabellerna i databasen.
 export const app = initializeApp(firebaseConfig);
 export const db = getDatabase(app);
 export const todoRef = ref(db,"todo");

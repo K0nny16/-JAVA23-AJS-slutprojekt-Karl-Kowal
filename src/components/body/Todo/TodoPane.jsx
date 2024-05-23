@@ -5,6 +5,7 @@ import { capitalizeFirstLetter,extractText } from "../../../Utils/Utils.ts";
 
 export function TodoPane({todoList}){
     
+    //Skickar datan fårn den valda diven till inprogress tabellen på firebase och tar bort det från todo tabellen.
     function toInprogress(event){
         const key = event.target.getAttribute("data-key");
         const parentDiv = event.target.closest(".pane");
@@ -21,6 +22,7 @@ export function TodoPane({todoList}){
 
     return(
         <>
+            {/*Loopar igenom alla keys och bygger divar med task,work area värdena från objekten.*/}
             {Object.keys(todoList).map(key => {
                 const task = todoList[key];
                 const style = task.workArea.toLowerCase();
