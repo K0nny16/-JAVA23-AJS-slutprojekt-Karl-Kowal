@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 import { getDatabase,ref } from "firebase/database";
 
 const firebaseConfig = {
@@ -17,3 +18,4 @@ export const db = getDatabase(app);
 export const todoRef = ref(db,"todo");
 export const inprogressRef = ref(db,"inprogress");
 export const doneRef = ref(db,"done");
+export const auth = getAuth(app);
