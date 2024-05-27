@@ -9,6 +9,7 @@ type User = {
 export async function login(user:User):Promise<UserCredential> {
     const {email,pw} = user;
     try{
+        //Returnerar credsen med ett Promise resolved eller ett nytt promise där jag sätter ett fel medelande.
         const userCredentials = await signInWithEmailAndPassword(auth,email,pw);
         return userCredentials;
     }catch(error){

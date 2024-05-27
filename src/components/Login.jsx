@@ -10,6 +10,7 @@ export function Login({setIsLoggedIn}){
         const pw = document.querySelector("#password").value.trim();       
         document.querySelector("form").reset();        
 
+        //Hanterar ifall promiset blir resolvat eller rejectat.
         const userCredentials = login({email,pw});
         userCredentials.then(() =>{
             setIsLoggedIn(true);
