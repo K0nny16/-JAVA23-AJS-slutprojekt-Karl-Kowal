@@ -7,7 +7,7 @@ type firebasePost = {
     workArea : string
 }
 
-//Gör en update beroende på vilket allternativ andvändaren har valt.
+//Gör en update beroende på vilket allternativ (vilken ref) andvändaren har valt.
 export function post(obj:firebasePost,key:string,ref:DatabaseReference):void{
     try{
         const {name,task,workArea} = obj;
