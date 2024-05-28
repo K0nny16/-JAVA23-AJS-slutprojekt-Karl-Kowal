@@ -1,7 +1,9 @@
 import { push, update } from "firebase/database";
 import { todoRef } from "../../firebase/firebaseConfig";
+import {NewUser} from "../NewUser.jsx";
+import {CurrentUser} from "../CurrentUser.jsx";
 
-export function HeadDiv(){
+export function HeadDiv({setIsLoggedIn}){
 
     let workArea="";
     let task ="";
@@ -33,6 +35,8 @@ export function HeadDiv(){
     return(
         <div id="head">
             <h1>Scrum Board</h1>
+            <CurrentUser/>
+            <NewUser/>
             <form onSubmit={postNewTask}>
                 <input onChange={inputTask} type="text" placeholder="Beskriv problemet kort!" id="input" required></input>
                 <select onChange={selectedOption} id="workArea" name="workArea">
