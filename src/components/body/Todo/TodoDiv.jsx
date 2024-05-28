@@ -8,10 +8,15 @@ export function Todo(){
     
     //Hämtar datan från den valda tabellen och updaterar statet när databasen updateras.
     useEffect(() => {
-        onValue(todoRef, (snapshot) => {
-            const data = snapshot.val();
-            setTodoList(data)
-        })
+        try{
+            onValue(todoRef, (snapshot) => {
+                const data = snapshot.val();
+                setTodoList(data)
+            })
+        }catch(error){
+            alert("Något gick fel! (DB connection)")
+            console.log(error);
+        }
     },[])
 
     return(

@@ -13,6 +13,6 @@ export async function login(user:User):Promise<UserCredential> {
         const userCredentials = await signInWithEmailAndPassword(auth,email,pw);
         return userCredentials;
     }catch(error){
-        return Promise.reject(new Error("Wrong user credentials!"));
+        return Promise.reject(new Error("Wrong user credentials or bad connection!"));
     }
 }

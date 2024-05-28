@@ -28,11 +28,12 @@ export function TodoPane({todoList}){
                 const style = task.workArea.toLowerCase();
                 return(
                     <div key={key} className={`pane ${style}`}>
-                        <p id="task">Task: {capitalizeFirstLetter(task.task)}</p>
+                        <form onSubmit={toInprogress}>
                         <p id="workArea">Work Area: {capitalizeFirstLetter(task.workArea)}</p>
+                        <p id="task">Task: {capitalizeFirstLetter(task.task)}</p>
                         <input id="name" type="text" placeholder="Enter name" required></input>
-                        <button onClick={toInprogress} data-key={key}>Assign</button>
-                        <br></br>
+                        <button type="submit" data-key={key}>Assign</button>
+                        </form>
                     </div>
                 )
             })}

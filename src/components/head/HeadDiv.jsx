@@ -20,14 +20,14 @@ export function HeadDiv(){
     return(
         <div id="head">
             <h1>Scrum Board</h1>
-            <form>
+            <form onSubmit={postNewTask}>
                 <input type="text" placeholder="Beskriv problemet kort!" id="input" required></input>
                 <select id="workArea" name="workArea">
                     <option value="backend">Dev Backend</option>
                     <option value="ux">UX</option>
                     <option value="frontend">Dev Frontend</option>
                 </select>
-                <button type="submit" onClick={postNewTask}>Add</button>
+                <button type="submit">Add</button>
             </form>
         </div>
     )
