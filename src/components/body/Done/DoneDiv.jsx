@@ -17,7 +17,12 @@ export function Done(){
     return(
         <div className="column">
             <h2>Done</h2>
-            <DonePane doneList={doneList}/>
+            {Object.keys(doneList).map(key => {
+               const done = doneList[key];
+               return(
+                   <DonePane keyProp={key} name={done.name} task={done.task} workArea={done.workArea}/>
+               ) 
+            })}
         </div> 
     )
 }

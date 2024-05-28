@@ -1,42 +1,33 @@
 import { inprogressRef } from "../../../firebase/firebaseConfig.js";
 import { post } from "../../../Utils/Post.ts";
 import { removeTask } from "../../../Utils/Remove.ts";
-import { capitalizeFirstLetter,extractText } from "../../../Utils/Utils.ts";
+import { capitalizeFirstLetter} from "../../../Utils/Utils.ts";
 
-export function TodoPane({todoList}){
+export function TodoPane({workArea,task,keyProp}){
     
-    //Skickar datan fårn den valda diven till inprogress tabellen på firebase och tar bort det från todo tabellen.
-    function toInprogress(event){
-        const key = event.target.getAttribute("data-key");
-        const parentDiv = event.target.closest(".pane");
-        let task = parentDiv.querySelector("#task").innerText;
-        let workArea = parentDiv.querySelector("#workArea").innerText;
-        const name = parentDiv.querySelector("input").value;
+    let name;
 
-        task = extractText(task,"Task");
-        workArea = extractText(workArea,"Work Area");
-
-        post({task,workArea,name},key,inprogressRef);
-        removeTask(key,"todo/")
+    function inputUser(event){
+        name = event.target.value.trim();
     }
 
+    //Skickar datan fårn den valda diven till inprogress tabellen på firebase och tar bort det från todo tabellen.
+    //Ändra så att mappande sker i diven innan och workarea och task passas in som props.
+    function toInprogress(){
+        post({task,workArea,name},keyProp,inprogressRef);
+        removeTask(keyProp,"todo/")
+    }
+
+    const style = workArea.toLowerCase();
+
     return(
-        <>
-            {/*Loopar igenom alla keys och bygger divar med task,work area värdena från objekten.*/}
-            {Object.keys(todoList).map(key => {
-                const task = todoList[key];
-                const style = task.workArea.toLowerCase();
-                return(
-                    <div key={key} className={`pane ${style}`}>
-                        <form data-key={key} onSubmit={toInprogress}>
-                        <p id="workArea">Work Area: {capitalizeFirstLetter(task.workArea)}</p>
-                        <p id="task">Task: {capitalizeFirstLetter(task.task)}</p>
-                        <input id="name" type="text" placeholder="Enter name" required></input>
-                        <button type="submit">Assign</button>
-                        </form>
-                    </div>
-                )
-            })}
-        </>
+        <div key={keyProp} className={`pane ${style}`}>
+            <form onSubmit={toInprogress}>
+                <p>Task: {capitalizeFirstLetter(task)}</p>
+                <p>Work Area: {capitalizeFirstLetter(workArea)}</p>
+                <input type="text" onChange={inputUser} placeholder="Enter name!" required></input>
+                <button type="submit">Assign</button>
+            </form>
+        </div>
     )
 }

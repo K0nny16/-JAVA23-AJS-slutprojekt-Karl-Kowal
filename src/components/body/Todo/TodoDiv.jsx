@@ -22,7 +22,12 @@ export function Todo(){
     return(
         <div className="column">
             <h2>Todo</h2>
-            <TodoPane todoList={todoList}/>
+            {Object.keys(todoList).map(key => {
+                const task = todoList[key];
+                return(
+                    <TodoPane task={task.task} workArea={task.workArea} keyProp={key}/>
+                )
+            })}  
         </div>
     )
 }

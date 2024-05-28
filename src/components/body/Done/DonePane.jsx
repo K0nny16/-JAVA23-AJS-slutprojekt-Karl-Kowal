@@ -1,29 +1,25 @@
 import { removeTask } from "../../../Utils/Remove.ts";
 import { capitalizeFirstLetter } from "../../../Utils/Utils.ts";
 
-export function DonePane({doneList}){
+export function DonePane({keyProp,name,workArea,task}){
 
     //Tarbort tasket från databasen.
-    function deleteTask(event){
-        const key = event.target.getAttribute("data-key");
-        removeTask(key,"done/")
+    //Ändra så att mappande sker i diven innan och workarea och task passas in som props.
+    function deleteTask(){
+        removeTask(keyProp,"done/")
     }
+
+    const style = workArea.toLowerCase();
 
     return(
         <>
             {/*Loopar över dom olika keysen och bygger divar med attributerna som finns i objekten.*/}
-            {Object.keys(doneList).map(key => {
-                const done = doneList[key];
-                const style = done.workArea.toLowerCase();
-                return(
-                    <div key={key} className={`pane ${style}`}>
-                        <p id="task">Task: {capitalizeFirstLetter(done.task)}</p>
-                        <p id="workArea">Work Area: {capitalizeFirstLetter(done.workArea)}</p>
-                        <p id="name">Assigned to: {capitalizeFirstLetter(done.name)}</p>
-                        <button data-key={key} onClick={deleteTask}>Remove task</button>
-                    </div>
-                )
-            })}
+             <div key={keyProp} className={`pane ${style}`}>
+                 <p>Task: {capitalizeFirstLetter(task)}</p>
+                 <p>Work Area: {capitalizeFirstLetter(workArea)}</p>
+                 <p>Assigned to: {capitalizeFirstLetter(name)}</p>
+                 <button onClick={deleteTask}>Remove task</button>
+             </div>
         </>
     )
 }

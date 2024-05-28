@@ -3,12 +3,21 @@ import { login } from "../Utils/firebaseAuth.ts";
 
 export function Login({setIsLoggedIn}){
     const navigate = useNavigate();
+
+    let email;
+    let pw;
+
+    function inputPw(event){
+        pw = event.target.value.trim();
+    }
+
+    function inputEmail(event){
+        email = event.target.value.trim();
+    }
     
     function handleLogin(event){
         event.preventDefault();
-        const email = document.querySelector("#email").value.trim();
-        const pw = document.querySelector("#password").value.trim();       
-        document.querySelector("form").reset();        
+        event.target.reset();
 
         //Hanterar ifall promiset blir resolvat eller rejectat.
         const userCredentials = login({email,pw});
@@ -26,9 +35,9 @@ export function Login({setIsLoggedIn}){
         <h2>Login Page!</h2>
         <form onSubmit={handleLogin}>
             <label>Email adress</label>
-            <input type="text" id="email" required></input>
+            <input onChange={inputEmail} type="text" id="email" required></input>
             <label>Password</label>
-            <input type="password" id="password" required></input>
+            <input onChange={inputPw} type="password" id="password" required></input>
             <button type="submit">Login</button>
         </form>
     </div>

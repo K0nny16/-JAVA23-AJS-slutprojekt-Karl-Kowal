@@ -1,40 +1,28 @@
 import { doneRef } from "../../../firebase/firebaseConfig.js";
 import { post } from "../../../Utils/Post.ts";
 import { removeTask } from "../../../Utils/Remove.ts";
-import { capitalizeFirstLetter, extractText } from "../../../Utils/Utils.ts";
+import { capitalizeFirstLetter } from "../../../Utils/Utils.ts";
 
-export function InprogressPane({inprogressList}){
+export function InprogressPane({keyProp,name,task,workArea}){
 
     //Skickar datan från diven till nästa tabell i firebase (done) och tar bort den från den nuvarnade.
-    function toDone(event){
-        const key = event.target.getAttribute("data-key");
-        const partentDiv = event.target.closest(".pane");
-        let task = partentDiv.querySelector("#task").innerText;
-        let workArea = partentDiv.querySelector("#workArea").innerText;
-        let name = partentDiv.querySelector("#name").innerText;
-
-        task = extractText(task,"Task");
-        workArea = extractText(workArea,"Work Area");
-        name = extractText(name, "Assigned to");
-        post({name,workArea,task},key,doneRef);
-        removeTask(key,"inprogress/");
+    //Ändra så att mappande sker i diven innan och workarea och task passas in som props.
+    function toDone(){
+        post({name,workArea,task},keyProp,doneRef);
+        removeTask(keyProp,"inprogress/");
     }
+
+    const style = workArea.toLowerCase();
 
     return(
         <>
             {/*Itererar över dom olika keysen och displayar attributerna i en div med p taggar*/}
-            {Object.keys(inprogressList).map(key => {
-                const inprogress = inprogressList[key];
-                const style = inprogress.workArea.toLowerCase();
-                return(
-                    <div key={key} className={`pane ${style}`}>
-                        <p id="task">Task: {capitalizeFirstLetter(inprogress.task)}</p>
-                        <p id="workArea">Work Area: {capitalizeFirstLetter(inprogress.workArea)}</p>
-                        <p id="name">Assigned to: {capitalizeFirstLetter(inprogress.name)}</p>
-                        <button onClick={toDone} data-key={key}>Move to Done</button>
-                    </div>
-                )
-            })}
+            <div key={keyProp} className={`pane ${style}`}>
+                <p>Task: {capitalizeFirstLetter(task)}</p>
+                <p>Work Area: {capitalizeFirstLetter(workArea)}</p>
+                <p>Assigned to: {capitalizeFirstLetter(name)}</p>
+                <button onClick={toDone} >Move to Done</button>
+            </div>
         </>
     )
 }

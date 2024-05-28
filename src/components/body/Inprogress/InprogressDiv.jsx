@@ -16,7 +16,12 @@ export function Inprogress(){
     return(
         <div className="column">
             <h2>Inprogress</h2>
-            <InprogressPane inprogressList={inprogressList}/>
+            {Object.keys(inprogressList).map(key =>{
+                const tasks = inprogressList[key];
+                return(
+                    <InprogressPane keyProp={key} task={tasks.task} workArea={tasks.workArea} name={tasks.name}/>
+                )
+            })}
         </div>
     )
 }
