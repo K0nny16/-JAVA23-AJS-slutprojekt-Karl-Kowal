@@ -12,10 +12,10 @@ export function Todo(){
             onValue(todoRef, (snapshot) => {
                 const data = snapshot.val();
                 setTodoList(data)
-            })
+            })   
         }catch(error){
-            alert("Något gick fel! (DB connection)")
             console.log(error);
+            alert("Something went wrong!");
         }
     },[])
 
