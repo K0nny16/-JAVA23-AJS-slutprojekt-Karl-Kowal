@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { login } from "../Utils/firebaseAuth.ts";
 
-export function Login({setIsLoggedIn}){
+export function Login({setIsLoggedIn,setCurrentUser}){
     const navigate = useNavigate();
 
     let email;
@@ -23,6 +23,7 @@ export function Login({setIsLoggedIn}){
         const userCredentials = login({email,pw});
         userCredentials.then(() =>{
             setIsLoggedIn(true);
+            setCurrentUser(email);
             navigate("/");
         }).catch((error) => {
             alert(error.message)

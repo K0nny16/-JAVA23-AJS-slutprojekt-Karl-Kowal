@@ -1,6 +1,4 @@
-/* pane.css */
 
-/* Styles for individual panes */
 .pane {
     border-radius: 10px;
     margin-bottom: 10px;
@@ -46,7 +44,6 @@
     filter: blur(0.5px);
 }
 
-/* Styles for different work areas */
 .pane.frontend {
     background-color: lightblue;
 }

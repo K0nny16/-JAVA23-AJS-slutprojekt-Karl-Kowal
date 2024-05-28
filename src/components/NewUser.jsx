@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 export function NewUser(){
+
+    const navigate = useNavigate();
     
     let email="";
     let pw="";
@@ -14,6 +18,10 @@ export function NewUser(){
     function addNewUser(event){
         event.preventDefault();
         event.target.reset();
+
+        //Kod för att lägga till användare.
+
+        navigate("/");
     }
     
     return(

@@ -1,9 +1,11 @@
 import { push, update } from "firebase/database";
 import { todoRef } from "../../firebase/firebaseConfig";
-import {NewUser} from "../NewUser.jsx";
 import {CurrentUser} from "../CurrentUser.jsx";
+import { useNavigate } from "react-router-dom";
 
-export function HeadDiv({setIsLoggedIn}){
+export function HeadDiv({setIsLoggedIn,currentUser,setCurrentUser}){
+
+    const navigate = useNavigate();
 
     let workArea="";
     let task ="";
@@ -21,7 +23,7 @@ export function HeadDiv({setIsLoggedIn}){
         event.target.reset();
 
         if(!workArea){
-            alert("Please chose a work area!");
+            alert("Please choose a work area!");
             return;
         }
 
@@ -31,12 +33,18 @@ export function HeadDiv({setIsLoggedIn}){
         update(todoRef,newTask);
     }
 
+    function registerUser(){
+        navigate("/newUser")
+    }
+
 
     return(
         <div id="head">
             <h1>Scrum Board</h1>
-            <CurrentUser/>
-            <NewUser/>
+            <nav>
+                <CurrentUser setIsLoggedIn={setIsLoggedIn} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+                <button onClick={registerUser}>Register user</button>
+            </nav>
             <form onSubmit={postNewTask}>
                 <input onChange={inputTask} type="text" placeholder="Beskriv problemet kort!" id="input" required></input>
                 <select onChange={selectedOption} id="workArea" name="workArea">
