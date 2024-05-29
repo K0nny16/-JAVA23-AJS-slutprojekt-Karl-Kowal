@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export function CurrentUser({setIsLoggedIn,currentUser,setCurrentUser}){
 
@@ -8,6 +9,7 @@ export function CurrentUser({setIsLoggedIn,currentUser,setCurrentUser}){
         setIsLoggedIn(false);
         setCurrentUser("");
         navigate("/")
+        toast.success(`${currentUser} is now logged out!`)
     }
 
     return(

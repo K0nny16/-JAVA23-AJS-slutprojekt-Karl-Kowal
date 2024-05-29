@@ -1,4 +1,7 @@
 import { useNavigate } from "react-router-dom";
+import { register } from "../Utils/firebaseRegister.ts";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export function NewUser(){
 
@@ -6,22 +9,38 @@ export function NewUser(){
     
     let email="";
     let pw="";
-
+    
     function inputEmail(event){
         email = event.target.value.trim();
     }
-
+    
     function inputPw(event){
         pw = event.target.value.trim();
     }
     
     function addNewUser(event){
+        const toastLoading = toast.loading("Registering...");
         event.preventDefault();
         event.target.reset();
 
-        //Kod för att lägga till användare.
 
-        navigate("/");
+        register(email,pw).then(() => {
+            toast.update(toastLoading,{
+                render:"Registration successful!",
+                type:"success",
+                isLoading:false,
+                autoClose: 5000,
+            });
+            navigate("/")
+        }).catch((error) => {
+            toast.update(toastLoading,{
+                render:error.message,
+                type:"error",
+                isLoading:false,
+                autoClose:5000,
+            });
+        });
+
     }
     
     return(

@@ -7,7 +7,7 @@ export function HeadDiv({setIsLoggedIn,currentUser,setCurrentUser}){
 
     const navigate = useNavigate();
 
-    let workArea="";
+    let workArea="backend";
     let task ="";
 
     function selectedOption(event){
@@ -48,7 +48,6 @@ export function HeadDiv({setIsLoggedIn,currentUser,setCurrentUser}){
             <form onSubmit={postNewTask}>
                 <input onChange={inputTask} type="text" placeholder="Beskriv problemet kort!" id="input" required></input>
                 <select onChange={selectedOption} id="workArea" name="workArea">
-                    <option>Please chose a work area</option>
                     <option value="backend">Dev Backend</option>
                     <option value="ux">UX</option>
                     <option value="frontend">Dev Frontend</option>
