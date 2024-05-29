@@ -18,6 +18,7 @@ export function NewUser(){
         pw = event.target.value.trim();
     }
     
+    //Lägger till en ny användare och visar när sidan laddas,om det gick fel och om det lyckades att lägga till. Redirectar sedan användaren tillbaka till scrumboarden.
     function addNewUser(event){
         const toastLoading = toast.loading("Registering...");
         event.preventDefault();

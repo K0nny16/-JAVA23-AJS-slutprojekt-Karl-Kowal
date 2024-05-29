@@ -11,6 +11,7 @@ export function App(){
     const [currentUser,setCurrentUser] = useState("");
 
 
+    //Sätter upp routes till dom olika komponenterna och kontrollerar ifall användaren är inloggad.
     return(
         <HashRouter>
             <nav>

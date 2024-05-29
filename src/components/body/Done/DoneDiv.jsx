@@ -14,6 +14,8 @@ export function Done(){
         })
     },[])
 
+
+    //Tar varje task som är status inprogress och bygger en komponent med egenskaperna från varje task.
     return(
         <div className="column">
             <h2>Done</h2>

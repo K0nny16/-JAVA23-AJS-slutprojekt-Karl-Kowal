@@ -22,11 +22,6 @@ export function HeadDiv({setIsLoggedIn,currentUser,setCurrentUser}){
         event.preventDefault();
         event.target.reset();
 
-        if(!workArea){
-            alert("Please choose a work area!");
-            return;
-        }
-
         const newID = push(todoRef).key;
         const newTask = {};
         newTask[newID] = {task,workArea};

@@ -23,7 +23,7 @@ export function Login({setIsLoggedIn,setCurrentUser}){
         event.preventDefault();
         event.target.reset();
         
-        //Hanterar ifall promiset blir resolvat eller rejectat.
+        //Hanterar ifall promiset blir resolvat eller rejectat. Visar även upp det grafiskt för användaren. Redirectar sedan användaren till scrumboarden.
         login({email,pw}).then(() =>{
         toast.update(toastID,{
             render:"Login successful!",

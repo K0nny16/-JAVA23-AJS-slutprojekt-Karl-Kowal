@@ -19,6 +19,7 @@ export function Todo() {
     }
   }, []);
 
+  //Tar varje task och bygger en todopane komponent med egenskaperna från objektet.
   return (
     <div className="column">
       <h2>Todo</h2>

@@ -16,7 +16,6 @@ export function InprogressPane({keyProp,name,task,workArea}){
 
     return(
         <>
-            {/*Itererar över dom olika keysen och displayar attributerna i en div med p taggar*/}
             <div key={keyProp} className={`pane ${style}`}>
                 <p>Task: {capitalizeFirstLetter(task)}</p>
                 <p>Work Area: {capitalizeFirstLetter(workArea)}</p>
