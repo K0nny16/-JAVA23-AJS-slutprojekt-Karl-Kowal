@@ -13,7 +13,7 @@ export function CurrentUser({setIsLoggedIn,currentUser,setCurrentUser}){
     }
 
     return(
-        <div>
+        <div className="nav-right">
             <p>{currentUser} </p>
             <button onClick={loggOut}>Logg out</button>
         </div>

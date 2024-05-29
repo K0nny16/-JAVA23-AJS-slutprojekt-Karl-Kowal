@@ -40,11 +40,13 @@ export function HeadDiv({setIsLoggedIn,currentUser,setCurrentUser}){
 
     return(
         <div id="head">
-            <h1>Scrum Board</h1>
             <nav>
+                <div className="nav-left">
+                    <button onClick={registerUser}>Register user</button>
+                </div>
                 <CurrentUser setIsLoggedIn={setIsLoggedIn} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
-                <button onClick={registerUser}>Register user</button>
             </nav>
+            <h1>Scrum Board</h1>
             <form onSubmit={postNewTask}>
                 <input onChange={inputTask} type="text" placeholder="Beskriv problemet kort!" id="input" required></input>
                 <select onChange={selectedOption} id="workArea" name="workArea">

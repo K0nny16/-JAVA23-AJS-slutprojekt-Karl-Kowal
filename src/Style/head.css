@@ -1,21 +1,38 @@
 #head {
   padding: 20px;
   background-color: #f0f0f0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.nav-left,.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-right p{
+  margin:20px;
+  font-size: 16px;
+  color:#333;
 }
 
 #head h1 {
   margin-bottom: 10px;
-  font-size: 24px;
+  font-size: 30px;
 }
 
 #head form {
   margin-top: 20px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 #head input[type="text"],
